@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KHEDMA — Find, compare and contact local professionals across Morocco.">
+  <meta name="theme-color" content="#08111f">
+  <title>KHEDMA — Find. Compare. Contact.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <div class="ambient ambient-c"></div>
+  <div class="noise"></div>
+
+  <header class="navbar" id="top">
+    <a class="brand" href="#home" aria-label="KHEDMA">
+      <span class="brand-logo" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img">
+          <path d="M10 8v32M10 24 31 8M10 24l22 16" />
+          <circle cx="35" cy="14" r="3" />
+          <circle cx="35" cy="34" r="3" />
+        </svg>
+      </span>
+      <span class="brand-name">KHEDMA</span>
+    </a>
+
+    <nav class="nav-links" id="mainNav">
+      <a href="#services" data-i18n="navServices">Services</a>
+      <a href="#how" data-i18n="navHow">How it works</a>
+      <a href="#professionals" data-i18n="navPros">Professionals</a>
+      <a href="#cities" data-i18n="navCities">Cities</a>
+      <a href="#join" data-i18n="navForPros">For professionals</a>
+    </nav>
+
+    <div class="nav-actions">
+      <select id="languageSelect" class="language-select" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="ar">AR</option>
+      </select>
+      <a class="btn btn-dark nav-cta" href="#join" data-i18n="joinPro">Join as a pro</a>
+      <button class="mobile-menu" id="mobileMenu" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main id="home">
+
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse"></span><span data-i18n="eyebrow">LOCAL HELP, ONE CLICK AWAY</span></div>
+        <h1 data-i18n="heroTitle">Find the right <em>professional</em> for the job.</h1>
+        <p data-i18n="heroText">Discover local professionals, compare their services and contact them directly. From a leaking tap to a broken AC — KHEDMA makes finding help simple.</p>
+
+        <div class="search-box">
+          <div class="search-field">
+            <span class="field-icon">⌕</span>
+            <div>
+              <small data-i18n="needLabel">What do you need?</small>
+              <select id="serviceSelect">
+                <option value="all" data-i18n="allServices">All services</option>
+                <option value="plumbing" data-i18n="plumbing">Plumbing</option>
+                <option value="electricity" data-i18n="electricity">Electricity</option>
+                <option value="ac" data-i18n="ac">Air conditioning</option>
+                <option value="appliance" data-i18n="appliance">Appliance repair</option>
+                <option value="mechanic" data-i18n="mechanic">Mechanic</option>
+                <option value="cleaning" data-i18n="cleaning">Cleaning</option>
+                <option value="painting" data-i18n="painting">Painting</option>
+                <option value="moving" data-i18n="moving">Moving</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="search-field">
+            <span class="field-icon">⌖</span>
+            <div>
+              <small data-i18n="cityLabel">City</small>
+              <select id="citySelect">
+                <option value="all" data-i18n="allCities">All Morocco</option>
+                <option>Agadir</option><option>Taroudant</option><option>Marrakech</option>
+                <option>Casablanca</option><option>Rabat</option><option>Tangier</option>
+                <option>Fes</option><option>Meknes</option><option>Oujda</option>
+                <option>Kenitra</option><option>El Jadida</option><option>Safi</option>
+                <option>Tetouan</option><option>Beni Mellal</option><option>Mohammedia</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn btn-primary search-btn" id="searchBtn" data-i18n="search">Find a professional</button>
+        </div>
+
+        <div class="trust-row">
+          <span><i>✓</i><b data-i18n="trust1">Direct contact</b></span>
+          <span><i>✓</i><b data-i18n="trust2">Compare profiles</b></span>
+          <span><i>✓</i><b data-i18n="trust3">Morocco-wide</b></span>
+        </div>
+      </div>
+
+      <div class="hero-scene" id="heroScene" aria-label="KHEDMA 3D service marketplace visual">
+        <div class="scene-grid"></div>
+        <div class="scene-ring ring-one"></div>
+        <div class="scene-ring ring-two"></div>
+        <div class="scene-orb orb-one" data-depth="0.9"></div>
+        <div class="scene-orb orb-two" data-depth="1.4"></div>
+        <div class="scene-orb orb-three" data-depth="1.8"></div>
+
+        <div class="map-plane" data-depth="0.45">
+          <span class="map-line line-a"></span><span class="map-line line-b"></span>
+          <span class="map-line line-c"></span><span class="map-node node-a"></span>
+          <span class="map-node node-b"></span><span class="map-node node-c"></span>
+        </div>
+
+        <div class="scene-label label-one" data-depth="1.6"><span class="status-dot"></span><span data-i18n="availableNow">Available now</span></div>
+        <div class="scene-label label-two" data-depth="1.3">★ <strong>4.9</strong> <span data-i18n="topRated">Top rated</span></div>
+
+        <article class="pro-card hero-pro" data-depth="1.15">
+          <div class="pro-head">
+            <div class="avatar avatar-blue">A</div>
+            <div>
+              <strong>Ahmed Services</strong>
+              <span>Plumbing · Agadir</span>
+            </div>
+            <span class="demo-badge">DEMO</span>
+          </div>
+          <div class="rating"><span>★★★★★</span> <b>4.9</b> <small>sample profile</small></div>
+          <div class="chip-row"><span>🔧 Plumbing</span><span>⚡ Emergency</span></div>
+          <div class="pro-foot">
+            <span class="available"><i></i><span data-i18n="available">Available</span></span>
+            <button class="mini-wa" onclick="showToast('Demo action — real WhatsApp numbers will be connected when professionals join.')">WhatsApp ↗</button>
+          </div>
+        </article>
+
+        <div class="floating-service service-a" data-depth="1.7"><b>⚡</b><span>Electrician<small>4.8 ★</small></span></div>
+        <div class="floating-service service-b" data-depth="1.9"><b>❄️</b><span>AC Expert<small>4.9 ★</small></span></div>
+        <div class="floating-service service-c" data-depth="1.5"><b>🚗</b><span>Mechanic<small>Nearby</small></span></div>
+
+        <div class="location-pin" data-depth="2.1"><span>⌖</span></div>
+      </div>
+    </section>
+
+    <section class="value-strip">
+      <div><strong>01</strong><span data-i18n="stat1">Choose a service</span></div>
+      <div><strong>02</strong><span data-i18n="stat2">Compare professionals</span></div>
+      <div><strong>03</strong><span data-i18n="stat3">Contact directly</span></div>
+      <div><strong>04</strong><span data-i18n="stat4">Get the job done</span></div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-head">
+        <div><span class="kicker" data-i18n="popularKicker">POPULAR SERVICES</span><h2 data-i18n="servicesTitle">Whatever the problem, find the right help.</h2></div>
+        <button class="text-btn" id="allServicesBtn" data-i18n="viewAll">View all →</button>
+      </div>
+      <div class="service-grid">
+        <button class="service-card" data-service="plumbing"><span class="service-icon">🔧</span><b data-i18n="plumbing">Plumbing</b><small data-i18n="plumbingDesc">Leaks, taps, pipes</small><span>↗</span></button>
+        <button class="service-card" data-service="electricity"><span class="service-icon">⚡</span><b data-i18n="electricity">Electricity</b><small data-i18n="electricityDesc">Installation & repair</small><span>↗</span></button>
+        <button class="service-card" data-service="ac"><span class="service-icon">❄️</span><b data-i18n="ac">Air conditioning</b><small data-i18n="acDesc">Service & installation</small><span>↗</span></button>
+        <button class="service-card" data-service="appliance"><span class="service-icon">🔌</span><b data-i18n="appliance">Appliance repair</b><small data-i18n="applianceDesc">Home appliances</small><span>↗</span></button>
+        <button class="service-card" data-service="mechanic"><span class="service-icon">🚗</span><b data-i18n="mechanic">Mechanic</b><small data-i18n="mechanicDesc">Car diagnostics & repair</small><span>↗</span></button>
+        <button class="service-card" data-service="cleaning"><span class="service-icon">✨</span><b data-i18n="cleaning">Cleaning</b><small data-i18n="cleaningDesc">Home & office</small><span>↗</span></button>
+        <button class="service-card" data-service="painting"><span class="service-icon">🎨</span><b data-i18n="painting">Painting</b><small data-i18n="paintingDesc">Interior & exterior</small><span>↗</span></button>
+        <button class="service-card" data-service="moving"><span class="service-icon">📦</span><b data-i18n="moving">Moving</b><small data-i18n="movingDesc">Transport & moving</small><span>↗</span></button>
+      </div>
+    </section>
+
+    <section class="section feature-section">
+      <div class="feature-copy reveal">
+        <span class="kicker" data-i18n="requestKicker">WHEN YOU DON'T KNOW WHO TO CALL</span>
+        <h2 data-i18n="requestTitle">Describe the problem. Let KHEDMA do the matching.</h2>
+        <p data-i18n="requestText">A future request flow lets a customer explain the problem, add a city, urgency and photo, then receive relevant professionals. It turns KHEDMA from a directory into a real service marketplace.</p>
+        <button class="btn btn-primary" id="requestBtn" data-i18n="postRequest">Post a request</button>
+      </div>
+
+      <div class="request-visual" data-depth-scene>
+        <div class="request-window">
+          <div class="window-top"><span><i></i><i></i><i></i></span><b>KHEDMA / REQUEST</b><em>●</em></div>
+          <div class="request-content">
+            <small data-i18n="requestLabel">YOUR REQUEST</small>
+            <div class="request-input"><span>🔧</span><p data-i18n="problemPlaceholder">My kitchen sink is leaking…</p></div>
+            <div class="request-options"><span>📍 Agadir</span><span>⚡ Urgent</span><span>📷 Photo</span></div>
+            <div class="match-row"><div class="match-avatar">3</div><div><b data-i18n="matchTitle">Relevant professionals</b><small data-i18n="matchText">Matched by service + location</small></div><strong>→</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="how">
+      <div class="section dark-inner">
+        <div class="section-head light">
+          <div><span class="kicker">KHEDMA</span><h2 data-i18n="howTitle">Simple for customers. Powerful for professionals.</h2></div>
+          <p class="head-note" data-i18n="howNote">One platform built around the two sides that matter.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><span>01</span><div class="step-icon">⌕</div><h3 data-i18n="step1Title">Search</h3><p data-i18n="step1Text">Tell us what you need and where you are.</p></article>
+          <article class="step"><span>02</span><div class="step-icon">◈</div><h3 data-i18n="step2Title">Compare</h3><p data-i18n="step2Text">See services, location, availability and profile details.</p></article>
+          <article class="step"><span>03</span><div class="step-icon">↗</div><h3 data-i18n="step3Title">Contact</h3><p data-i18n="step3Text">Call or message the professional directly.</p></article>
+          <article class="step"><span>04</span><div class="step-icon">✓</div><h3 data-i18n="step4Title">Done</h3><p data-i18n="step4Text">Get the job done and share your experience later.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="professionals">
+      <div class="section-head">
+        <div><span class="kicker" data-i18n="featuredKicker">SAMPLE PROFILES</span><h2 data-i18n="featuredTitle">Built to make good professionals stand out.</h2></div>
+        <button class="text-btn" id="nearbyBtn" data-i18n="nearby">Try Agadir →</button>
+      </div>
+
+      <div class="pro-grid" id="proGrid">
+        <article class="profile-card" data-service="plumbing" data-city="Agadir">
+          <div class="profile-cover cover-blue"><span>🔧</span><label>DEMO PROFILE</label></div>
+          <div class="profile-body">
+            <div class="avatar large">A</div><h3>Ahmed Services</h3><p>Plumbing · Repairs</p>
+            <div class="profile-meta">★ <b>4.9</b> <span>sample</span> · Agadir</div>
+            <div class="profile-actions"><button onclick="showToast('Demo profile — connect a real profile page later.')">View profile</button><button class="wa" onclick="showToast('Demo WhatsApp — add the professional number later.')">WhatsApp</button></div>
+          </div>
+        </article>
+
+        <article class="profile-card" data-service="electricity" data-city="Taroudant">
+          <div class="profile-cover cover-gold"><span>⚡</span><label>DEMO PROFILE</label></div>
+          <div class="profile-body">
+            <div class="avatar large avatar-gold">Y</div><h3>Yassine Electric</h3><p>Electricity · Installation</p>
+            <div class="profile-meta">★ <b>4.8</b> <span>sample</span> · Taroudant</div>
+            <div class="profile-actions"><button onclick="showToast('Demo profile — connect a real profile page later.')">View profile</button><button class="wa" onclick="showToast('Demo WhatsApp — add the professional number later.')">WhatsApp</button></div>
+          </div>
+        </article>
+
+        <article class="profile-card" data-service="ac" data-city="Marrakech">
+          <div class="profile-cover cover-purple"><span>❄️</span><label>DEMO PROFILE</label></div>
+          <div class="profile-body">
+            <div class="avatar large avatar-purple">S</div><h3>Sami Clima</h3><p>AC · Maintenance</p>
+            <div class="profile-meta">★ <b>4.9</b> <span>sample</span> · Marrakech</div>
+            <div class="profile-actions"><button onclick="showToast('Demo profile — connect a real profile page later.')">View profile</button><button class="wa" onclick="showToast('Demo WhatsApp — add the professional number later.')">WhatsApp</button></div>
+          </div>
+        </article>
+      </div>
+      <p id="emptyState" class="empty-state" hidden data-i18n="noResults">No sample profile matches these filters yet.</p>
+    </section>
+
+    <section class="section pro-benefits" id="join">
+      <div class="pro-benefit-copy">
+        <span class="kicker" data-i18n="proKicker">FOR PROFESSIONALS</span>
+        <h2 data-i18n="joinTitle">Turn your skills into a stronger local presence.</h2>
+        <p data-i18n="joinText">KHEDMA is designed to help tradespeople and local service businesses show what they do, where they work and how customers can reach them.</p>
+        <button class="btn btn-primary" id="joinBtn" data-i18n="createProfile">Create my profile</button>
+        <span class="free-note" data-i18n="freeStart">Start free during the launch phase</span>
+      </div>
+
+      <div class="benefit-stack">
+        <article><span>01</span><div><b data-i18n="benefit1">Showcase your work</b><p data-i18n="benefit1Text">Services, photos, area served and contact options in one profile.</p></div></article>
+        <article><span>02</span><div><b data-i18n="benefit2">Receive better leads</b><p data-i18n="benefit2Text">Customers can filter by service and city before contacting you.</p></div></article>
+        <article><span>03</span><div><b data-i18n="benefit3">Build trust over time</b><p data-i18n="benefit3Text">Reviews and verification can be added as the platform grows.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section cities-section" id="cities">
+      <div class="section-head">
+        <div><span class="kicker" data-i18n="citiesKicker">DESIGNED FOR MOROCCO</span><h2 data-i18n="citiesTitle">Start local. Build nationwide.</h2></div>
+        <span class="morocco-chip">🇲🇦 Morocco</span>
+      </div>
+      <div class="city-grid">
+        <button class="city-card active" data-city="Agadir"><span>🌊</span><b>Agadir</b><small>Souss-Massa</small></button>
+        <button class="city-card" data-city="Taroudant"><span>🌴</span><b>Taroudant</b><small>Souss-Massa</small></button>
+        <button class="city-card" data-city="Marrakech"><span>🕌</span><b>Marrakech</b><small>Marrakech-Safi</small></button>
+        <button class="city-card" data-city="Casablanca"><span>🏙️</span><b>Casablanca</b><small>Casablanca-Settat</small></button>
+        <button class="city-card" data-city="Rabat"><span>🏛️</span><b>Rabat</b><small>Rabat-Salé-Kénitra</small></button>
+        <button class="city-card" data-city="Tangier"><span>🌊</span><b>Tangier</b><small>Tanger-Tétouan</small></button>
+        <button class="city-card" data-city="Fes"><span>🧱</span><b>Fes</b><small>Fès-Meknès</small></button>
+        <button class="city-card" data-city="Oujda"><span>📍</span><b>Oujda</b><small>Oriental</small></button>
+        <button class="city-card" data-city="Kenitra"><span>🌿</span><b>Kenitra</b><small>Rabat-Salé-Kénitra</small></button>
+        <button class="city-card" data-city="Safi"><span>🌊</span><b>Safi</b><small>Marrakech-Safi</small></button>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="section-head"><div><span class="kicker">FAQ</span><h2 data-i18n="faqTitle">Questions, answered.</h2></div></div>
+      <div class="faq-list">
+        <button class="faq"><span data-i18n="faq1q">Is KHEDMA free for customers?</span><b>+</b><p data-i18n="faq1a">Yes. Customers can search and contact professionals for free.</p></button>
+        <button class="faq"><span data-i18n="faq2q">Which cities will KHEDMA cover?</span><b>+</b><p data-i18n="faq2a">The architecture is Morocco-wide. Initial real onboarding can start in Agadir, Taroudant and expand city by city.</p></button>
+        <button class="faq"><span data-i18n="faq3q">Can I join as a professional?</span><b>+</b><p data-i18n="faq3a">Yes. The launch flow is being prepared for local professionals.</p></button>
+        <button class="faq"><span data-i18n="faq4q">Are the profiles on this demo real?</span><b>+</b><p data-i18n="faq4a">No. The profiles currently shown are sample/demo profiles so the design can be tested before real providers are onboarded.</p></button>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="cta-orbit"></div>
+      <div class="cta-inner">
+        <span class="kicker" data-i18n="ctaKicker">KHEDMA</span>
+        <h2 data-i18n="ctaTitle">Find help. Get discovered. Grow locally.</h2>
+        <p data-i18n="ctaText">A marketplace built around real local services — starting simple, then growing into a complete platform.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#services" data-i18n="ctaCustomer">Find a service</a>
+          <a class="btn btn-light" href="#join" data-i18n="ctaPro">Join as a professional</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <a class="brand" href="#home">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M10 8v32M10 24 31 8M10 24l22 16"/><circle cx="35" cy="14" r="3"/><circle cx="35" cy="34" r="3"/></svg>
+        </span>
+        <span class="brand-name">KHEDMA</span>
+      </a>
+      <p data-i18n="footerText">Find. Compare. Contact.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#services" data-i18n="navServices">Services</a>
+      <a href="#professionals" data-i18n="navPros">Professionals</a>
+      <a href="#cities" data-i18n="navCities">Cities</a>
+      <a href="#join" data-i18n="joinPro">Join as a pro</a>
+    </div>
+    <small>© <span id="year"></span> KHEDMA · Morocco</small>
+  </footer>
+
+  <div class="modal-backdrop" id="requestModal" aria-hidden="true">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">×</button>
+      <span class="kicker">KHEDMA / REQUEST</span>
+      <h2 data-i18n="modalTitle">Tell us what you need.</h2>
+      <p data-i18n="modalText">This is a frontend demo for the future request system.</p>
+      <label><span data-i18n="modalProblem">Problem</span><textarea id="problemInput" data-i18n-placeholder="problemPlaceholder" placeholder="My kitchen sink is leaking…"></textarea></label>
+      <div class="modal-grid">
+        <label><span data-i18n="modalCity">City</span><select id="modalCity"><option>Agadir</option><option>Taroudant</option><option>Marrakech</option><option>Casablanca</option><option>Rabat</option></select></label>
+        <label><span data-i18n="modalUrgency">Urgency</span><select><option data-i18n="normal">Normal</option><option data-i18n="urgent">Urgent</option></select></label>
+      </div>
+      <button class="btn btn-primary full" id="submitRequest" data-i18n="sendRequest">Continue</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
