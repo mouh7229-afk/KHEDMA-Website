@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KHEDMA — Find trusted local professionals across Morocco.">
+  <title>KHEDMA — Find a trusted professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-glow glow-a"></div>
+  <div class="page-glow glow-b"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#home" aria-label="KHEDMA home">
+      <span class="brand-mark">K</span><span>KHEDMA</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services" data-i18n="navServices">Services</a>
+      <a href="#how" data-i18n="navHow">How it works</a>
+      <a href="#professionals" data-i18n="navPros">Professionals</a>
+      <a href="#cities" data-i18n="navCities">Cities</a>
+    </nav>
+    <div class="nav-actions">
+      <select id="languageSelect" class="language-select" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="ar">AR</option>
+      </select>
+      <a class="btn btn-dark small" href="#join" data-i18n="joinPro">Join as a pro</a>
+      <button class="mobile-menu" id="mobileMenu" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span><span data-i18n="eyebrow">LOCAL HELP, ONE CLICK AWAY</span></div>
+        <h1 data-i18n="heroTitle">Find the right <em>professional</em> for your job.</h1>
+        <p data-i18n="heroText">Plumbers, electricians, mechanics, AC technicians and more — discover local professionals, compare them and contact them directly.</p>
+
+        <div class="search-box">
+          <div class="search-field">
+            <span>⌕</span>
+            <div>
+              <small data-i18n="needLabel">What do you need?</small>
+              <select id="serviceSelect">
+                <option value="all" data-i18n="allServices">All services</option>
+                <option value="plumbing" data-i18n="plumbing">Plumbing</option>
+                <option value="electricity" data-i18n="electricity">Electricity</option>
+                <option value="ac" data-i18n="ac">Air conditioning</option>
+                <option value="appliance" data-i18n="appliance">Appliance repair</option>
+                <option value="mechanic" data-i18n="mechanic">Mechanic</option>
+                <option value="cleaning" data-i18n="cleaning">Cleaning</option>
+                <option value="painting" data-i18n="painting">Painting</option>
+              </select>
+            </div>
+          </div>
+          <div class="search-field">
+            <span>⌖</span>
+            <div>
+              <small data-i18n="cityLabel">City</small>
+              <select id="citySelect">
+                <option value="all" data-i18n="allCities">All Morocco</option>
+                <option>Agadir</option>
+                <option>Taroudant</option>
+                <option>Marrakech</option>
+                <option>Casablanca</option>
+                <option>Rabat</option>
+                <option>Tangier</option>
+                <option>Fes</option>
+                <option>Meknes</option>
+                <option>Oujda</option>
+                <option>Kenitra</option>
+                <option>El Jadida</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary search-btn" id="searchBtn" data-i18n="search">Find a professional</button>
+        </div>
+
+        <div class="trust-row">
+          <span>✓ <b data-i18n="trust1">Direct WhatsApp</b></span>
+          <span>✓ <b data-i18n="trust2">Customer reviews</b></span>
+          <span>✓ <b data-i18n="trust3">Local professionals</b></span>
+        </div>
+      </div>
+
+      <div class="hero-visual" id="heroVisual">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="map-grid"></div>
+
+        <div class="floating-tag tag-top">● <span data-i18n="availableNow">Available now</span></div>
+        <div class="floating-tag tag-bottom">★ 4.9 <span data-i18n="topRated">Top rated</span></div>
+
+        <article class="pro-card hero-card">
+          <div class="pro-card-head">
+            <div class="avatar avatar-blue">A</div>
+            <div>
+              <strong>Ahmed Services</strong>
+              <span>📍 Agadir · <b>2.4 km</b></span>
+            </div>
+            <span class="verified">✓</span>
+          </div>
+          <div class="rating">★★★★★ <b>4.9</b> <span>(128)</span></div>
+          <div class="chip-row">
+            <span>🔧 Plumbing</span><span>🚿 Repairs</span>
+          </div>
+          <div class="pro-card-foot">
+            <span class="available"><i></i><span data-i18n="available">Available</span></span>
+            <button class="mini-wa" onclick="showToast('WhatsApp demo — connect your real professional profile later.')">WhatsApp ↗</button>
+          </div>
+        </article>
+
+        <div class="mini-card mini-one"><span>⚡</span><div><b>Electrician</b><small>4.8 ★</small></div></div>
+        <div class="mini-card mini-two"><span>❄️</span><div><b>AC Expert</b><small>4.9 ★</small></div></div>
+        <div class="location-pin">⌖</div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong>01</strong><span data-i18n="stat1">Choose a service</span></div>
+      <div><strong>02</strong><span data-i18n="stat2">Compare professionals</span></div>
+      <div><strong>03</strong><span data-i18n="stat3">Contact directly</span></div>
+      <div><strong>04</strong><span data-i18n="stat4">Get the job done</span></div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-head">
+        <div><span class="kicker" data-i18n="popularKicker">POPULAR SERVICES</span><h2 data-i18n="servicesTitle">Whatever the problem, find the right help.</h2></div>
+        <button class="text-btn" id="allServicesBtn" data-i18n="viewAll">View all →</button>
+      </div>
+      <div class="service-grid">
+        <button class="service-card" data-service="plumbing"><span class="service-icon">🔧</span><b data-i18n="plumbing">Plumbing</b><small data-i18n="plumbingDesc">Leaks, taps, pipes</small><span>→</span></button>
+        <button class="service-card" data-service="electricity"><span class="service-icon">⚡</span><b data-i18n="electricity">Electricity</b><small data-i18n="electricityDesc">Installation & repair</small><span>→</span></button>
+        <button class="service-card" data-service="ac"><span class="service-icon">❄️</span><b data-i18n="ac">Air conditioning</b><small data-i18n="acDesc">Service & installation</small><span>→</span></button>
+        <button class="service-card" data-service="appliance"><span class="service-icon">🔌</span><b data-i18n="appliance">Appliance repair</b><small data-i18n="applianceDesc">Home appliances</small><span>→</span></button>
+        <button class="service-card" data-service="mechanic"><span class="service-icon">🚗</span><b data-i18n="mechanic">Mechanic</b><small data-i18n="mechanicDesc">Car diagnostics & repair</small><span>→</span></button>
+        <button class="service-card" data-service="cleaning"><span class="service-icon">✨</span><b data-i18n="cleaning">Cleaning</b><small data-i18n="cleaningDesc">Home & office</small><span>→</span></button>
+        <button class="service-card" data-service="painting"><span class="service-icon">🎨</span><b data-i18n="painting">Painting</b><small data-i18n="paintingDesc">Interior & exterior</small><span>→</span></button>
+        <button class="service-card" data-service="moving"><span class="service-icon">📦</span><b data-i18n="moving">Moving</b><small data-i18n="movingDesc">Transport & moving</small><span>→</span></button>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="how">
+      <div class="section-head light">
+        <div><span class="kicker">KHEDMA</span><h2 data-i18n="howTitle">Simple for customers. Powerful for professionals.</h2></div>
+      </div>
+      <div class="steps">
+        <article class="step"><span>01</span><div class="step-icon">⌕</div><h3 data-i18n="step1Title">Search</h3><p data-i18n="step1Text">Tell us what you need and where you are.</p></article>
+        <article class="step"><span>02</span><div class="step-icon">◈</div><h3 data-i18n="step2Title">Compare</h3><p data-i18n="step2Text">See ratings, services, location and availability.</p></article>
+        <article class="step"><span>03</span><div class="step-icon">↗</div><h3 data-i18n="step3Title">Contact</h3><p data-i18n="step3Text">Call or message the professional directly.</p></article>
+        <article class="step"><span>04</span><div class="step-icon">✓</div><h3 data-i18n="step4Title">Done</h3><p data-i18n="step4Text">Get the job done and share your experience.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="professionals">
+      <div class="section-head">
+        <div><span class="kicker" data-i18n="featuredKicker">FEATURED</span><h2 data-i18n="featuredTitle">Professionals ready to help.</h2></div>
+        <button class="text-btn" id="nearbyBtn" data-i18n="nearby">Near you →</button>
+      </div>
+      <div class="pro-grid" id="proGrid">
+        <article class="profile-card" data-service="plumbing" data-city="Agadir">
+          <div class="profile-cover cover-blue"><span>🔧</span><label>Available</label></div>
+          <div class="profile-body"><div class="avatar large">A</div><h3>Ahmed Services <span class="check">✓</span></h3><p>Plumbing · Repairs</p><div class="profile-meta">★ <b>4.9</b> <span>(128)</span> · Agadir</div><div class="profile-actions"><button onclick="showToast('Profile preview — connect this card to your profile page.')">View profile</button><button class="wa" onclick="showToast('WhatsApp demo — add your real number in JS.')">WhatsApp</button></div></div>
+        </article>
+        <article class="profile-card" data-service="electricity" data-city="Taroudant">
+          <div class="profile-cover cover-gold"><span>⚡</span><label>Available</label></div>
+          <div class="profile-body"><div class="avatar large avatar-gold">Y</div><h3>Yassine Electric <span class="check">✓</span></h3><p>Electricity · Installation</p><div class="profile-meta">★ <b>4.8</b> <span>(96)</span> · Taroudant</div><div class="profile-actions"><button onclick="showToast('Profile preview — connect this card to your profile page.')">View profile</button><button class="wa" onclick="showToast('WhatsApp demo — add your real number in JS.')">WhatsApp</button></div></div>
+        </article>
+        <article class="profile-card" data-service="ac" data-city="Marrakech">
+          <div class="profile-cover cover-purple"><span>❄️</span><label>Available</label></div>
+          <div class="profile-body"><div class="avatar large avatar-purple">S</div><h3>Sami Clima <span class="check">✓</span></h3><p>AC · Maintenance</p><div class="profile-meta">★ <b>4.9</b> <span>(74)</span> · Marrakech</div><div class="profile-actions"><button onclick="showToast('Profile preview — connect this card to your profile page.')">View profile</button><button class="wa" onclick="showToast('WhatsApp demo — add your real number in JS.')">WhatsApp</button></div></div>
+        </article>
+      </div>
+      <p id="emptyState" class="empty-state" hidden data-i18n="noResults">No demo professionals match these filters yet.</p>
+    </section>
+
+    <section class="section request-section">
+      <div class="request-card">
+        <div class="request-copy">
+          <span class="kicker">NEED HELP?</span>
+          <h2 data-i18n="requestTitle">Describe your problem. Let the right professionals find you.</h2>
+          <p data-i18n="requestText">Post a request with your location, urgency and a photo. This is the next step of KHEDMA — built to make finding help even faster.</p>
+          <button class="btn btn-primary" id="requestBtn" data-i18n="postRequest">Post a request</button>
+        </div>
+        <div class="request-ui">
+          <div class="request-top"><span>New request</span><i>•••</i></div>
+          <div class="fake-input">🔧 <span data-i18n="problemPlaceholder">“My kitchen sink is leaking…”</span></div>
+          <div class="fake-row"><span>📍 Agadir</span><span>⚡ Urgent</span></div>
+          <div class="fake-matches"><span>3 professionals nearby</span><b>→</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cities-section" id="cities">
+      <div class="section-head">
+        <div><span class="kicker" data-i18n="citiesKicker">GROWING ACROSS MOROCCO</span><h2 data-i18n="citiesTitle">Start local. Build nationwide.</h2></div>
+        <span class="city-count">Morocco 🇲🇦</span>
+      </div>
+      <div class="city-grid">
+        <button class="city-card active" data-city="Agadir"><span>🌊</span><b>Agadir</b><small>Agadir-Ida Ou Tanane</small></button>
+        <button class="city-card" data-city="Taroudant"><span>🌴</span><b>Taroudant</b><small>Souss-Massa</small></button>
+        <button class="city-card" data-city="Marrakech"><span>🕌</span><b>Marrakech</b><small>Marrakech-Safi</small></button>
+        <button class="city-card" data-city="Casablanca"><span>🏙️</span><b>Casablanca</b><small>Casablanca-Settat</small></button>
+        <button class="city-card" data-city="Rabat"><span>🏛️</span><b>Rabat</b><small>Rabat-Salé-Kénitra</small></button>
+        <button class="city-card" data-city="Tangier"><span>🌊</span><b>Tangier</b><small>Tanger-Tétouan-Al Hoceïma</small></button>
+        <button class="city-card" data-city="Fes"><span>🧱</span><b>Fes</b><small>Fès-Meknès</small></button>
+        <button class="city-card" data-city="Oujda"><span>📍</span><b>Oujda</b><small>Oriental</small></button>
+      </div>
+    </section>
+
+    <section class="section join-section" id="join">
+      <div>
+        <span class="kicker">FOR PROFESSIONALS</span>
+        <h2 data-i18n="joinTitle">Turn your skills into more customers.</h2>
+        <p data-i18n="joinText">Create a professional profile, showcase your work and make it easier for customers around you to contact you.</p>
+      </div>
+      <div class="join-actions">
+        <button class="btn btn-primary" id="joinBtn" data-i18n="createProfile">Create my profile</button>
+        <span data-i18n="freeStart">Start free · No card required</span>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="section-head"><div><span class="kicker">FAQ</span><h2 data-i18n="faqTitle">Questions, answered.</h2></div></div>
+      <div class="faq-list">
+        <button class="faq"><span data-i18n="faq1q">Is KHEDMA free for customers?</span><b>+</b><p data-i18n="faq1a">Yes. Customers can search and contact professionals for free.</p></button>
+        <button class="faq"><span data-i18n="faq2q">Which cities will KHEDMA cover?</span><b>+</b><p data-i18n="faq2a">The platform is designed for Morocco, starting with Agadir, Taroudant and other major cities.</p></button>
+        <button class="faq"><span data-i18n="faq3q">Can I join as a professional?</span><b>+</b><p data-i18n="faq3a">Yes. The professional onboarding flow is being prepared for the first local providers.</p></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><a class="brand" href="#home"><span class="brand-mark">K</span><span>KHEDMA</span></a><p data-i18n="footerText">Find. Compare. Contact.</p></div>
+    <div class="footer-links"><a href="#services" data-i18n="navServices">Services</a><a href="#professionals" data-i18n="navPros">Professionals</a><a href="#cities" data-i18n="navCities">Cities</a><a href="#join" data-i18n="joinPro">Join as a pro</a></div>
+    <small>© <span id="year"></span> KHEDMA · Morocco</small>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
