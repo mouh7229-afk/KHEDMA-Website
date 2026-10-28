@@ -1,0 +1,15 @@
+-- KHEDMA V15 schema
+create extension if not exists pgcrypto;
+create table if not exists public.profiles (id uuid primary key references auth.users(id) on delete cascade, full_name text not null, role text not null check(role in ('customer','professional')), phone text, whatsapp text, city text, service_key text, bio text, avatar_url text, rating numeric(2,1) default 0, reviews_count integer default 0, verified boolean default false, is_published boolean default false, created_at timestamptz default now(), updated_at timestamptz default now());
+create table if not exists public.requests (id uuid primary key default gen_random_uuid(), user_id uuid not null references auth.users(id) on delete cascade, service_key text not null, city text not null, description text not null, phone text not null, status text not null default 'open' check(status in ('open','matched','closed','cancelled')), created_at timestamptz default now());
+create table if not exists public.reviews (id uuid primary key default gen_random_uuid(), professional_id uuid not null references public.profiles(id) on delete cascade, customer_id uuid not null references auth.users(id) on delete cascade, rating integer not null check(rating between 1 and 5), comment text, created_at timestamptz default now(), unique(professional_id,customer_id));
+alter table public.profiles enable row level security; alter table public.requests enable row level security; alter table public.reviews enable row level security;
+drop policy if exists "public published pros" on public.profiles; create policy "public published pros" on public.profiles for select using ((role='professional' and is_published=true) or auth.uid()=id);
+drop policy if exists "own profile insert" on public.profiles; create policy "own profile insert" on public.profiles for insert with check(auth.uid()=id);
+drop policy if exists "own profile update" on public.profiles; create policy "own profile update" on public.profiles for update using(auth.uid()=id) with check(auth.uid()=id);
+drop policy if exists "own request insert" on public.requests; create policy "own request insert" on public.requests for insert with check(auth.uid()=user_id);
+drop policy if exists "own request read" on public.requests; create policy "own request read" on public.requests for select using(auth.uid()=user_id);
+drop policy if exists "public review read" on public.reviews; create policy "public review read" on public.reviews for select using(true);
+drop policy if exists "own review insert" on public.reviews; create policy "own review insert" on public.reviews for insert with check(auth.uid()=customer_id);
+create or replace function public.handle_new_user() returns trigger language plpgsql security definer set search_path=public as $$ begin insert into public.profiles(id,full_name,role) values(new.id,coalesce(new.raw_user_meta_data->>'full_name','KHEDMA User'),coalesce(new.raw_user_meta_data->>'role','customer')); return new; end; $$;
+drop trigger if exists on_auth_user_created on auth.users; create trigger on_auth_user_created after insert on auth.users for each row execute procedure public.handle_new_user();
