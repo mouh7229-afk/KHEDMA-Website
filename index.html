@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f1e5">
+  <meta name="description" content="KHEDMA — Find, compare and contact local professionals across Morocco.">
+  <title>KHEDMA — Local services in Morocco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header" id="top">
+  <div class="nav-wrap">
+    <a class="brand" href="#top" aria-label="KHEDMA home">
+      <span class="brand-mark">K</span><span class="brand-name">KHEDMA</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#professionals" data-i18n="nav_professionals">Professionals</a>
+      <a href="#cities" data-i18n="nav_cities">Cities</a>
+      <a href="#how" data-i18n="nav_how">How it works</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="accountButton" class="account-button" type="button" data-i18n="account">Account</button>
+      <div class="language">
+        <button id="langButton" class="lang-button" type="button" aria-expanded="false"><span id="langCurrent">EN</span><span>⌄</span></button>
+        <div id="langMenu" class="lang-menu" role="menu">
+          <button type="button" data-lang="en">English</button>
+          <button type="button" data-lang="fr">Français</button>
+          <button type="button" data-lang="ar">العربية</button>
+        </div>
+      </div>
+      <button id="menuButton" class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#professionals" data-i18n="nav_professionals">Professionals</a>
+    <a href="#cities" data-i18n="nav_cities">Cities</a>
+    <a href="#how" data-i18n="nav_how">How it works</a>
+    <button id="mobileRequest" class="mobile-request" type="button" data-i18n="cta_request">Post a request</button>
+  </div>
+</header>
+
+<main>
+<section class="hero section">
+  <div class="hero-copy reveal">
+    <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="eyebrow">Morocco's local service network</span></div>
+    <h1 data-i18n="hero_title">Find the right professional for your next job.</h1>
+    <p data-i18n="hero_text">Discover local professionals, compare their services and contact them directly.</p>
+  </div>
+
+  <div class="search-card reveal">
+    <div class="search-row">
+      <div class="field service-field">
+        <label for="serviceSearch" data-i18n="service_label">What service do you need?</label>
+        <input id="serviceSearch" type="text" autocomplete="off" data-i18n-placeholder="service_placeholder" placeholder="Plumbing, electricity, painting…">
+        <span class="field-icon">⌕</span>
+        <div id="serviceSuggestions" class="suggestions"></div>
+      </div>
+      <div class="field city-field">
+        <label for="citySelect" data-i18n="city_label">City</label>
+        <select id="citySelect">
+          <option value="Morocco" data-i18n="all_morocco">All Morocco</option>
+        </select>
+        <span class="field-icon">⌖</span>
+      </div>
+      <button id="searchButton" class="btn btn-primary" type="button" data-i18n="search">Search</button>
+    </div>
+    <div id="searchResult" class="search-result" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="discover-section section reveal" id="discover">
+  <div class="discover-intro">
+    <div>
+      <span class="section-label" data-i18n="discover_label">DISCOVER BY CITY</span>
+      <h2 data-i18n="discover_title">Find help where you are.</h2>
+      <p data-i18n="discover_text">Choose a city and KHEDMA will take you straight to professionals available for that area.</p>
+    </div>
+    <button id="discoverNear" class="discover-near" type="button">⌖ <span data-i18n="near_me">Near me</span></button>
+  </div>
+  <div class="city-discovery-card">
+    <div class="city-focus">
+      <div class="city-focus-icon">⌖</div>
+      <div>
+        <span class="city-focus-label" data-i18n="selected_city">SELECTED CITY</span>
+        <strong id="selectedCityName">Morocco</strong>
+        <p id="selectedCityText" data-i18n="city_focus_text">Choose a city below to start finding local professionals.</p>
+      </div>
+    </div>
+    <button id="discoverButton" class="btn btn-primary" type="button" data-i18n="discover_pros">Find professionals →</button>
+  </div>
+  <div class="city-picks-head">
+    <span data-i18n="popular_cities">Popular cities</span>
+    <span data-i18n="swipe_cities">Swipe to explore</span>
+  </div>
+  <div id="cityPicks" class="city-picks"></div>
+  <div class="city-region-strip">
+    <div><span>01</span><strong data-i18n="region_south">South</strong><small>Agadir · Taroudant · Dakhla</small></div>
+    <div><span>02</span><strong data-i18n="region_center">Center</strong><small>Marrakech · Casablanca · Rabat</small></div>
+    <div><span>03</span><strong data-i18n="region_north">North</strong><small>Tangier · Fes · Tetouan</small></div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="section-heading reveal">
+    <div><span class="section-label" data-i18n="popular_services">POPULAR SERVICES</span><h2 data-i18n="services_title">What do you need help with?</h2></div>
+    <button id="requestTop" class="text-button" type="button" data-i18n="post_request">Post a request →</button>
+  </div>
+  <div id="servicesGrid" class="services-grid"></div>
+</section>
+
+<section id="how" class="dark-section section">
+  <div class="section-heading light reveal">
+    <div><span class="section-label light-label" data-i18n="simple_process">SIMPLE PROCESS</span><h2 data-i18n="how_title">From problem to professional.</h2></div>
+  </div>
+  <div class="steps-grid">
+    <article class="step reveal"><span>01</span><h3 data-i18n="step1_title">Choose a service</h3><p data-i18n="step1_text">Tell KHEDMA what kind of professional you need.</p></article>
+    <article class="step reveal"><span>02</span><h3 data-i18n="step2_title">Pick your city</h3><p data-i18n="step2_text">Search across Morocco or focus on one city.</p></article>
+    <article class="step reveal"><span>03</span><h3 data-i18n="step3_title">Compare & contact</h3><p data-i18n="step3_text">Review profiles, then call or WhatsApp directly.</p></article>
+  </div>
+</section>
+
+<section id="professionals" class="section">
+  <div class="section-heading reveal">
+    <div><span class="section-label" data-i18n="featured">FEATURED</span><h2 data-i18n="profiles_title">Professionals who can help.</h2><p data-i18n="profiles_text">Demo profiles for the current frontend. Real professionals will be connected in the next stage.</p></div>
+  </div>
+  <div id="profilesGrid" class="profiles-grid"></div>
+</section>
+
+<section id="cities" class="section cities-section">
+  <div class="section-heading reveal">
+    <div><span class="section-label" data-i18n="nationwide">NATIONWIDE</span><h2 data-i18n="cities_title">Find help across Morocco.</h2></div>
+  </div>
+  <div id="citiesGrid" class="cities-grid"></div>
+</section>
+
+<section class="join-section section reveal">
+  <div>
+    <span class="section-label light-label" data-i18n="for_pros">FOR PROFESSIONALS</span>
+    <h2 data-i18n="join_title">Turn your skills into more opportunities.</h2>
+    <p data-i18n="join_text">Create your profile, show your work and let customers contact you directly.</p>
+  </div>
+  <button id="joinButton" class="btn btn-light" type="button" data-i18n="join_btn">Join KHEDMA</button>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><a class="brand footer-brand" href="#top"><span class="brand-mark">K</span><span class="brand-name">KHEDMA</span></a><p data-i18n="footer_tag">Find. Compare. Contact.</p></div>
+    <span>© 2026 KHEDMA · <span data-i18n="footer_demo">Frontend demo</span></span>
+  </div>
+</footer>
+
+<button id="backTop" class="back-top" type="button" aria-label="Back to top">↑</button>
+
+<div id="profileModal" class="modal-overlay" hidden>
+  <div class="modal">
+    <button class="modal-close" data-close="profileModal" type="button" aria-label="Close profile">×</button>
+    <div id="profileModalContent"></div>
+  </div>
+</div>
+
+<div id="accountModal" class="modal-overlay" hidden>
+  <div class="modal account-modal">
+    <button class="modal-close" data-close="accountModal" type="button" aria-label="Close">×</button>
+    <span class="section-label" data-i18n="account_label">KHEDMA ACCOUNT</span>
+    <h2 id="accountTitle" data-i18n="account_title">Create your account</h2>
+    <p id="accountText" data-i18n="account_text">Sign in to save requests and manage your professional profile.</p>
+    <form id="authForm">
+      <label><span data-i18n="auth_name">Full name</span><input id="authName" autocomplete="name" placeholder="Your name"></label>
+      <label><span data-i18n="auth_email">Email</span><input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+      <label><span data-i18n="auth_password">Password</span><input id="authPassword" type="password" minlength="6" autocomplete="current-password" required placeholder="••••••••"></label>
+      <label><span data-i18n="auth_role">I am</span><select id="authRole"><option value="customer" data-i18n="customer">Customer</option><option value="professional" data-i18n="professional">Professional</option></select></label>
+      <button class="btn btn-primary full" type="submit" data-i18n="auth_continue">Continue</button>
+    </form>
+    <button id="authModeToggle" class="text-button full" type="button" data-i18n="auth_switch">Already have an account? Sign in</button>
+    <button id="dashboardButton" class="btn btn-light full" type="button" hidden data-i18n="dashboard">My dashboard</button>
+    <button id="adminButton" class="btn btn-primary full" type="button" hidden data-i18n="admin_panel">Admin panel</button>
+    <button id="authLogout" class="btn btn-light full" type="button" hidden data-i18n="logout">Log out</button>
+    <div id="authStatus" class="success" hidden></div>
+  </div>
+</div>
+
+
+<div id="dashboardModal" class="modal-overlay" hidden>
+  <div class="modal dashboard-modal">
+    <button class="modal-close" data-close="dashboardModal" type="button" aria-label="Close">×</button>
+    <span class="section-label" data-i18n="dashboard_label">KHEDMA DASHBOARD</span>
+    <h2 id="dashboardTitle" data-i18n="dashboard_title">Manage your profile</h2>
+    <p id="dashboardText" data-i18n="dashboard_text">Manage your KHEDMA account and activity.</p>
+
+    <div class="dashboard-tabs" role="tablist">
+      <button class="dashboard-tab active" type="button" data-dashboard-tab="overview" data-i18n="dash_overview">Overview</button>
+      <button class="dashboard-tab" type="button" data-dashboard-tab="requests" data-i18n="dash_requests">Requests</button>
+      <button class="dashboard-tab customer-only" type="button" data-dashboard-tab="saved" data-i18n="dash_saved">Saved</button>
+      <button class="dashboard-tab customer-only" type="button" data-dashboard-tab="reviews" data-i18n="dash_reviews">Reviews</button>
+      <button class="dashboard-tab" type="button" data-dashboard-tab="profile" data-i18n="dash_profile">Profile</button>
+      <button class="dashboard-tab pro-only" type="button" data-dashboard-tab="work" data-i18n="dash_work">Work photos</button>
+      <button class="dashboard-tab pro-only" type="button" data-dashboard-tab="availability" data-i18n="dash_availability">Availability</button>
+    </div>
+
+    <section class="dashboard-panel active" data-dashboard-panel="overview">
+      <div class="dashboard-overview-card"><div id="dashboardAvatar" class="dashboard-avatar">K</div><div><span class="section-label" data-i18n="dash_status_label">ACCOUNT STATUS</span><h3 id="dashboardName">KHEDMA</h3><p id="dashboardStatusText" class="dashboard-muted"></p></div></div>
+      <div class="dashboard-stats">
+        <div><strong id="dashCompletion">0%</strong><span data-i18n="dash_completion">Profile complete</span></div>
+        <div><strong id="dashRequestCount">0</strong><span data-i18n="dash_my_requests">My requests</span></div>
+        <div><strong id="dashSavedCount">0</strong><span data-i18n="dash_saved_count">Saved professionals</span></div>
+      </div>
+      <div class="dashboard-panel-head"><span class="section-label" data-i18n="dash_next_label">NEXT STEP</span><h3 data-i18n="dash_next_title">Keep your account ready.</h3></div>
+      <p class="dashboard-muted" data-i18n="dash_next_text">Complete your information, send requests and keep your trusted professionals in one place.</p>
+    </section>
+
+    <section class="dashboard-panel" data-dashboard-panel="profile">
+      <form id="profileForm">
+        <label><span data-i18n="profile_full_name">Full name</span><input id="profileName" required></label>
+        <label><span data-i18n="profile_phone">Phone</span><input id="profilePhone" type="tel"></label>
+        <label><span data-i18n="profile_whatsapp">WhatsApp</span><input id="profileWhatsapp" type="tel"></label>
+        <label><span data-i18n="profile_city">City</span><select id="profileCity"></select></label>
+        <label id="profileServiceRow"><span data-i18n="profile_service">Service</span><select id="profileService"></select></label>
+        <label><span data-i18n="profile_bio">About you</span><textarea id="profileBio" rows="4"></textarea></label>
+        <label id="publishRow" class="check-row"><input id="profilePublished" type="checkbox"><span data-i18n="profile_publish">Publish my professional profile</span></label>
+        <button class="btn btn-primary full" type="submit" data-i18n="save_profile">Save profile</button>
+      </form>
+      <div id="profileSaveStatus" class="success" hidden></div>
+      <div id="verificationBox" class="verification-box pro-only"></div>
+    </section>
+
+    <section class="dashboard-panel" data-dashboard-panel="requests">
+      <div class="dashboard-panel-head"><span class="section-label" data-i18n="dash_requests_label">MY ACTIVITY</span><h3 data-i18n="dash_requests_title">Your requests.</h3></div>
+      <div id="customerRequests" class="incoming-requests"></div>
+      <div id="professionalRequests" class="incoming-requests pro-only"></div>
+    </section>
+
+    <section class="dashboard-panel customer-only" data-dashboard-panel="saved">
+      <div class="dashboard-panel-head"><span class="section-label" data-i18n="dash_saved_label">SAVED</span><h3 data-i18n="dash_saved_title">Professionals you want to keep.</h3></div>
+      <div id="savedProfessionals" class="saved-pro-list"></div>
+    </section>
+
+    <section class="dashboard-panel customer-only" data-dashboard-panel="reviews">
+      <div class="dashboard-panel-head"><span class="section-label" data-i18n="dash_reviews_label">YOUR REVIEWS</span><h3 data-i18n="dash_reviews_title">Share your experience.</h3></div>
+      <form id="reviewForm" class="review-form">
+        <label><span data-i18n="review_professional">Professional</span><select id="reviewProfessional" required></select></label>
+        <label><span data-i18n="review_rating">Rating</span><select id="reviewRating"><option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option><option value="2">★★☆☆☆</option><option value="1">★☆☆☆☆</option></select></label>
+        <label><span data-i18n="review_comment">Comment</span><textarea id="reviewComment" rows="3"></textarea></label>
+        <button class="btn btn-primary full" type="submit" data-i18n="review_submit">Submit review</button>
+      </form>
+      <div id="reviewStatus" class="success" hidden></div>
+      <div id="myReviews" class="review-list"></div>
+    </section>
+
+    <section class="dashboard-panel pro-only" data-dashboard-panel="work">
+      <div class="dashboard-panel-head"><span class="section-label" data-i18n="dash_work_label">YOUR WORK</span><h3 data-i18n="dash_work_title">Show what you do.</h3><p class="dashboard-muted" data-i18n="dash_work_text">Upload real photos of your work.</p></div>
+      <label class="upload-box" for="workPhotoInput"><span>＋</span><strong data-i18n="dash_add_photos">Add work photos</strong><small data-i18n="dash_photo_hint">JPG or PNG · up to 6 photos</small></label>
+      <input id="workPhotoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+      <div id="photoStatus" class="success" hidden></div><div id="workPhotosGrid" class="work-photos-grid"></div>
+    </section>
+
+    <section class="dashboard-panel pro-only" data-dashboard-panel="availability">
+      <div class="dashboard-panel-head"><span class="section-label" data-i18n="dash_availability_label">AVAILABILITY</span><h3 data-i18n="dash_availability_title">Tell customers when you are available.</h3></div>
+      <div id="availabilityGrid" class="availability-grid"></div>
+      <button id="saveAvailability" class="btn btn-primary full" type="button" data-i18n="dash_save_availability">Save availability</button>
+      <div id="availabilityStatus" class="success" hidden></div>
+    </section>
+  </div>
+</div>
+
+<div id="adminModal" class="modal-overlay" hidden>
+  <div class="modal dashboard-modal admin-modal">
+    <button class="modal-close" data-close="adminModal" type="button" aria-label="Close">×</button>
+    <span class="section-label" data-i18n="admin_label">KHEDMA ADMIN</span>
+    <h2 data-i18n="admin_title">Control center</h2>
+    <p class="dashboard-muted" data-i18n="admin_text">Manage the marketplace using real Supabase data.</p>
+    <div class="dashboard-stats admin-stats">
+      <div><strong id="adminPros">0</strong><span data-i18n="admin_professionals">Professionals</span></div>
+      <div><strong id="adminCustomers">0</strong><span data-i18n="admin_customers">Customers</span></div>
+      <div><strong id="adminRequests">0</strong><span data-i18n="admin_requests">Requests</span></div>
+      <div><strong id="adminPending">0</strong><span data-i18n="admin_pending">Pending verification</span></div>
+    </div>
+    <div class="dashboard-tabs admin-tabs">
+      <button class="dashboard-tab active" data-admin-tab="professionals" data-i18n="admin_pros_tab">Professionals</button>
+      <button class="dashboard-tab" data-admin-tab="requests" data-i18n="admin_req_tab">Requests</button>
+      <button class="dashboard-tab" data-admin-tab="reviews" data-i18n="admin_reviews_tab">Reviews</button>
+      <button class="dashboard-tab" data-admin-tab="verification" data-i18n="admin_ver_tab">Verification</button>
+    </div>
+    <section class="dashboard-panel active" data-admin-panel="professionals"><div id="adminProfessionals" class="admin-list"></div></section>
+    <section class="dashboard-panel" data-admin-panel="requests"><div id="adminRequestList" class="admin-list"></div></section>
+    <section class="dashboard-panel" data-admin-panel="reviews"><div id="adminReviewList" class="admin-list"></div></section>
+    <section class="dashboard-panel" data-admin-panel="verification"><div id="adminVerificationList" class="admin-list"></div></section>
+    <div id="adminStatus" class="success" hidden></div>
+  </div>
+</div>
+
+<div id="requestModal" class="modal-overlay" hidden>
+  <div class="modal">
+    <button class="modal-close" data-close="requestModal" type="button" aria-label="Close">×</button>
+    <span class="section-label" data-i18n="request_label">KHEDMA REQUEST</span>
+    <h2 data-i18n="request_title">Tell us what you need.</h2>
+    <p data-i18n="request_text">This frontend demo prepares your request locally. Real matching will be connected with Supabase next.</p>
+    <form id="requestForm">
+      <label><span data-i18n="form_service">Service</span><select id="requestService" required></select></label>
+      <label><span data-i18n="form_city">City</span><select id="requestCity" required></select></label>
+      <label><span data-i18n="form_description">Describe the problem</span><textarea id="requestDescription" rows="4" required data-i18n-placeholder="form_description_ph" placeholder="Example: I need a plumber for a leaking kitchen pipe."></textarea></label>
+      <label><span data-i18n="form_phone">Phone / WhatsApp</span><input id="requestPhone" type="tel" required placeholder="06 XX XX XX XX"></label>
+      <button class="btn btn-primary full" type="submit" data-i18n="prepare_request">Prepare request</button>
+    </form>
+    <div id="requestSuccess" class="success" hidden></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
