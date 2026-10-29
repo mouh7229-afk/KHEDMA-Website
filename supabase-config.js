@@ -1,2 +1,2 @@
 // Public Supabase config only.
-window.KHEDMA_SUPABASE={url:"YOUR_SUPABASE_URL",anonKey:"YOUR_SUPABASE_ANON_KEY"};
+window.KHEDMA_SUPABASE={url:"https://kmmyanjuisatyjuatqjs.supabase.co",anonKey:"sb_publishable_tuqg7o3it4NAzZhQabqElQ_NjIuf-at"};
